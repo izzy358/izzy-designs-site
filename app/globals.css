@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-ink antialiased;
+}
+
+a,
+button,
+input,
+select,
+textarea,
+iframe {
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2;
+}
+
+.container-shell {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+.section-space {
+  @apply py-16 sm:py-20 lg:py-24;
+}
+
+.eyebrow {
+  @apply text-sm font-semibold uppercase tracking-[0.2em] text-accent;
+}
+
+.card-surface {
+  @apply rounded-3xl border border-slate-200 bg-white shadow-soft;
+}
+
+.dark-panel {
+  @apply rounded-[2rem] bg-ink text-white shadow-soft;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition hover:bg-sky-600;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-ink transition hover:border-accent hover:text-accent;
+}
+
+.grid-overlay {
+  background-image:
+    linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
