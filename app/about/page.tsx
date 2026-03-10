@@ -1,17 +1,45 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
 import { CTASection } from "@/components/CTASection";
 import { SectionIntro } from "@/components/SectionIntro";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata(
   "About",
-  "Learn how Izzy Designs combines sales experience, business ownership, and digital execution to help small businesses grow."
+  "Learn how Izzy Designs combines business consultant experience, small business growth expertise, and digital strategy to help owners scale with clarity.",
+  "/about"
 );
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Izzy Cortez",
+  jobTitle: "Founder & Business Consultant",
+  worksFor: {
+    "@type": "Organization",
+    name: "Izzy Designs",
+    url: "https://izzydesigns.io"
+  },
+  description:
+    "Business consultant with 10+ years in sales and 7+ years running businesses across automotive, service, and digital industries.",
+  knowsAbout: [
+    "Business Strategy",
+    "Web Design",
+    "AI Automation",
+    "Sales",
+    "Small Business Growth"
+  ]
+};
 
 export default function AboutPage() {
   return (
     <>
+      <Script id="about-person-schema" type="application/ld+json">
+        {JSON.stringify(personSchema)}
+      </Script>
+
       <section className="section-space">
         <div className="container-shell grid gap-12 lg:grid-cols-[1fr_0.9fr] lg:items-center">
           <div>
@@ -32,16 +60,24 @@ export default function AboutPage() {
                 actually follow through on them.
               </p>
             </div>
-            <Link href="/contact" className="btn-primary mt-8">
-              Let&apos;s see if we&apos;re a good fit
-            </Link>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link href="/contact" className="btn-primary">
+                Let&apos;s see if we&apos;re a good fit
+              </Link>
+              <Link href="/blog" className="btn-secondary">
+                Read our blog
+              </Link>
+            </div>
           </div>
           <div className="rounded-[2rem] border border-slate-200 bg-sand p-5 shadow-soft">
             <div className="relative h-[28rem] overflow-hidden rounded-[1.5rem]">
-              <img
+              <Image
                 src="/izzy-about.png"
                 alt="Izzy — founder of Izzy Designs"
-                className="h-full w-full object-cover"
+                fill
+                priority
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                className="object-cover"
               />
             </div>
           </div>

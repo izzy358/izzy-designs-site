@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Script from "next/script";
 import { notFound } from "next/navigation";
 import { getAllPosts, getPostBySlug, getPostSlugs } from "@/lib/blog";
 import MarkdownContent from "@/components/MarkdownContent";
@@ -24,9 +25,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: post.metadata.title,
     description: post.metadata.description,
+    alternates: {
+      canonical: `/blog/${params.slug}`
+    },
     openGraph: {
       title: post.metadata.title,
       description: post.metadata.description,
+      url: `https://izzydesigns.io/blog/${params.slug}`,
       siteName: "Izzy Designs",
       type: "article"
     },
@@ -47,9 +52,30 @@ export default function BlogPostPage({ params }: PageProps) {
   }
 
   const related = allPosts.filter((item) => item.slug !== params.slug).slice(0, 2);
+  const publishedDate = new Date(post.metadata.date).toISOString();
+  const blogPostingSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.metadata.title,
+    description: post.metadata.description,
+    author: {
+      "@type": "Person",
+      name: "Izzy Cortez"
+    },
+    datePublished: publishedDate,
+    publisher: {
+      "@type": "Organization",
+      name: "Izzy Designs"
+    },
+    mainEntityOfPage: `https://izzydesigns.io/blog/${params.slug}`,
+    url: `https://izzydesigns.io/blog/${params.slug}`
+  };
 
   return (
     <section className="section-space">
+      <Script id={`blog-post-schema-${params.slug}`} type="application/ld+json">
+        {JSON.stringify(blogPostingSchema)}
+      </Script>
       <div className="container-shell grid gap-10 lg:grid-cols-[minmax(0,1fr)_20rem]">
         <article className="min-w-0">
           <p className="eyebrow">{post.metadata.category}</p>
@@ -59,6 +85,12 @@ export default function BlogPostPage({ params }: PageProps) {
           <div className="mt-5 flex flex-wrap gap-4 text-sm text-slate-500">
             <span>{post.metadata.date}</span>
             <span>{post.metadata.readTime}</span>
+            <span>
+              By{" "}
+              <Link href="/about" className="font-medium text-accent">
+                Izzy Cortez
+              </Link>
+            </span>
           </div>
           <div className="mt-10">
             <MarkdownContent content={post.content} />

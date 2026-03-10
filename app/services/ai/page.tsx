@@ -7,7 +7,8 @@ import { createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata(
   "AI & Automation",
-  "AI receptionists and automation systems that answer calls, follow up with leads, manage reviews, and book appointments around the clock."
+  "AI receptionists and automation systems that answer calls, follow up with leads, manage reviews, and book appointments around the clock.",
+  "/services/ai"
 );
 
 const automationTiers = [

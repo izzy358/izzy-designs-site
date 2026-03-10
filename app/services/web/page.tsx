@@ -7,7 +7,8 @@ import { createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata(
   "Web Design",
-  "Custom websites, landing pages, branding, and digital presence packages for small businesses that need to look established online."
+  "Custom websites, landing pages, branding, and digital presence packages for small businesses that need to look established online.",
+  "/services/web"
 );
 
 const faqs = [

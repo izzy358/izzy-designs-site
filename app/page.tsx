@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Script from "next/script";
 import { BlogCard } from "@/components/BlogCard";
 import { CTASection } from "@/components/CTASection";
 import { Hero } from "@/components/Hero";
@@ -11,14 +12,52 @@ import { createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata(
   "Home",
-  "Izzy Designs helps solopreneurs grow with business coaching, conversion-focused websites, and practical AI automation."
+  "Izzy Designs is a web design consultant and AI business consulting partner helping small businesses grow with business coaching, conversion-focused websites, and practical automation.",
+  "/"
 );
+
+const professionalServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "Izzy Designs",
+  url: "https://izzydesigns.io",
+  description:
+    "Business coaching, conversion-focused websites, and practical AI automation for solopreneurs and small business owners.",
+  founder: {
+    "@type": "Person",
+    name: "Izzy Cortez"
+  },
+  areaServed: "United States",
+  serviceType: ["Business Coaching", "Web Design", "AI Automation", "Digital Marketing"],
+  priceRange: "$500 - $5,000",
+  email: "izzy@izzydesigns.io",
+  sameAs: []
+};
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Izzy Designs",
+  url: "https://izzydesigns.io",
+  email: "izzy@izzydesigns.io",
+  areaServed: {
+    "@type": "Country",
+    name: "United States"
+  }
+};
 
 export default async function HomePage() {
   const posts = getAllPosts();
 
   return (
     <>
+      <Script id="home-professional-service-schema" type="application/ld+json">
+        {JSON.stringify(professionalServiceSchema)}
+      </Script>
+      <Script id="home-local-business-schema" type="application/ld+json">
+        {JSON.stringify(localBusinessSchema)}
+      </Script>
+
       <Hero />
 
       <section className="section-space">

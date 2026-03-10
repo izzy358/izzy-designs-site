@@ -6,7 +6,8 @@ import { createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata(
   "Blog",
-  "Insights from Izzy Designs on business strategy, website performance, and AI automation for small business owners."
+  "Small business tips, AI automation insights, and website conversion guidance from Izzy Designs.",
+  "/blog"
 );
 
 export default async function BlogPage() {

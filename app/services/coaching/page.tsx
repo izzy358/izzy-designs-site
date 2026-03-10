@@ -7,7 +7,8 @@ import { createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata(
   "Business Coaching",
-  "Strategic coaching for business owners who are done winging it and need structure, accountability, and a clearer growth plan."
+  "Strategic coaching for business owners who are done winging it and need structure, accountability, and a clearer growth plan.",
+  "/services/coaching"
 );
 
 const tiers = [

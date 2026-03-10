@@ -16,13 +16,19 @@ export const metadata: Metadata = {
     template: "%s | Izzy Designs"
   },
   description:
-    "Business coaching, conversion-focused websites, and practical AI automation for solopreneurs and small business owners.",
+    "Izzy Designs offers business coaching, web design consulting, and AI business consulting for small business growth.",
   openGraph: {
     title: "Izzy Designs",
     description:
-      "Business coaching, websites, and AI systems built for practical growth.",
+      "Business coaching, websites, and AI systems built for practical small business growth.",
     url: baseUrl,
     siteName: "Izzy Designs",
+    images: [
+      {
+        url: "/widget-icon.png",
+        alt: "Izzy Designs brand mark"
+      }
+    ],
     locale: "en_US",
     type: "website"
   },
@@ -30,7 +36,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Izzy Designs",
     description:
-      "Design the life and business you want with strategic coaching, websites, and AI automation."
+      "Design the life and business you want with strategic coaching, websites, and AI automation.",
+    images: ["/widget-icon.png"]
   }
 };
 

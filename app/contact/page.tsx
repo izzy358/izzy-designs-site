@@ -4,7 +4,8 @@ import { createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata(
   "Contact",
-  "Contact Izzy Designs to discuss coaching, web development, AI automation, or book a discovery call."
+  "Book a free strategy call, request business consulting, or get a web design quote from Izzy Designs.",
+  "/contact"
 );
 
 export default function ContactPage() {
