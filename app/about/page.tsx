@@ -37,15 +37,12 @@ export default function AboutPage() {
             </Link>
           </div>
           <div className="rounded-[2rem] border border-slate-200 bg-sand p-5 shadow-soft">
-            <div className="flex h-[28rem] items-end rounded-[1.5rem] bg-[linear-gradient(160deg,#dbeafe_0%,#e2e8f0_50%,#cbd5e1_100%)] p-8">
-              <div className="rounded-3xl bg-white/85 p-6 backdrop-blur">
-                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
-                  Photo Placeholder
-                </p>
-                <p className="mt-3 max-w-xs text-sm leading-7 text-slate-600">
-                  Replace with professional brand photography that feels modern, minimal, and grounded.
-                </p>
-              </div>
+            <div className="relative h-[28rem] overflow-hidden rounded-[1.5rem]">
+              <img
+                src="/izzy-about.png"
+                alt="Izzy — founder of Izzy Designs"
+                className="h-full w-full object-cover"
+              />
             </div>
           </div>
         </div>
