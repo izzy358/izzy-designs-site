@@ -17,6 +17,16 @@ const socialLinks = [
 export function Footer() {
   return (
     <footer className="border-t border-slate-200 bg-sand">
+      <div className="border-b border-accent/20 bg-ink">
+        <div className="container-shell flex flex-col gap-4 py-5 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-sm font-medium text-white">
+            📥 Free Guide: How to Add AI to Your Business Without Breaking Anything
+          </p>
+          <Link href="/contact?ref=ai-guide" className="btn-primary shrink-0">
+            Download the Guide
+          </Link>
+        </div>
+      </div>
       <div className="container-shell grid gap-10 py-14 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
         <div className="max-w-md space-y-4">
           <p className="text-lg font-semibold tracking-[0.22em] text-ink">IZZY DESIGNS</p>

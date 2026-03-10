@@ -6,7 +6,7 @@ import { createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata(
   "Services",
-  "Explore coaching, custom web development, and AI automation services from Izzy Designs."
+  "Explore coaching, web design, and AI automation services from Izzy Designs."
 );
 
 export default function ServicesPage() {
@@ -29,15 +29,15 @@ export default function ServicesPage() {
             />
             <ServiceCard
               icon="💻"
-              title="Web Design & Development"
-              description="Custom sites, landing pages, SEO improvements, and conversion-focused structure built to generate better leads."
-              href="/services/digital"
+              title="Web Design & Digital Presence"
+              description="Websites, branding, and everything that makes your business look legit."
+              href="/services/web"
             />
             <ServiceCard
               icon="🤖"
               title="AI & Automation"
-              description="AI receptionists, chatbots, email and text automation, and CRM setup that reduce manual work and improve response speed."
-              href="/services/digital"
+              description="Stop working harder. Let AI handle the repetitive stuff."
+              href="/services/ai"
             />
           </div>
         </div>
@@ -52,11 +52,11 @@ export default function ServicesPage() {
             ],
             [
               "Web",
-              "Ideal if your site is not reflecting the quality of your business or is failing to turn visitors into booked calls."
+              "Ideal if your site is not reflecting the quality of your business or is failing to make you look established online."
             ],
             [
               "AI",
-              "Ideal if leads are falling through the cracks and repetitive follow-up is consuming hours every week."
+              "Ideal if repetitive work, missed calls, and inconsistent follow-up are consuming hours every week."
             ]
           ].map(([title, copy]) => (
             <div key={title} className="card-surface p-8">

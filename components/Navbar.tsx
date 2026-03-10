@@ -15,7 +15,8 @@ const navLinks = [
 const serviceLinks = [
   { href: "/services", label: "Services" },
   { href: "/services/coaching", label: "Coaching" },
-  { href: "/services/digital", label: "Web & AI" }
+  { href: "/services/web", label: "Web Design" },
+  { href: "/services/ai", label: "AI & Automation" }
 ];
 
 export function Navbar() {
@@ -108,7 +109,7 @@ export function Navbar() {
                 </Link>
               )
             )}
-            <div className="grid grid-cols-2 gap-2 px-1 pt-1">
+            <div className="grid gap-2 px-1 pt-1">
               {serviceLinks.slice(1).map((item) => (
                 <Link
                   key={item.href}

@@ -62,7 +62,7 @@ export default function ContactPage() {
                     Select a service
                   </option>
                   <option value="coaching">Business Coaching & Strategy</option>
-                  <option value="web">Web Design & Development</option>
+                  <option value="web">Web Design & Digital Presence</option>
                   <option value="ai">AI & Automation</option>
                   <option value="multiple">Multiple Services</option>
                 </select>

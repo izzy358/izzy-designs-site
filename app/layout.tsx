@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
@@ -47,6 +48,10 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
         </div>
+        <Script id="bland-settings" strategy="lazyOnload">
+          {`window.blandSettings = { widget_id: "aee7578c-ff25-4fc0-a4e9-7fa7a48ce7a3" };`}
+        </Script>
+        <Script src="https://widget.bland.ai/loader.js" strategy="lazyOnload" />
       </body>
     </html>
   );

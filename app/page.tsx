@@ -37,15 +37,15 @@ export default async function HomePage() {
             />
             <ServiceCard
               icon="💻"
-              title="Web Design & Development"
-              description="Conversion-focused sites that generate leads, not just look pretty."
-              href="/services/digital"
+              title="Web Design & Digital Presence"
+              description="Websites, branding, and everything that makes your business look legit."
+              href="/services/web"
             />
             <ServiceCard
               icon="🤖"
               title="AI & Automation"
-              description="Chatbots, AI receptionists, automated follow-ups. Your competitors don't have this yet."
-              href="/services/digital"
+              description="Stop working harder. Let AI handle the repetitive stuff."
+              href="/services/ai"
             />
           </div>
         </div>
