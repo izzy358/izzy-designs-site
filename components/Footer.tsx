@@ -9,9 +9,7 @@ const footerLinks = [
 ];
 
 const socialLinks = [
-  { href: "https://www.instagram.com", label: "Instagram" },
-  { href: "https://www.linkedin.com", label: "LinkedIn" },
-  { href: "https://www.facebook.com", label: "Facebook" }
+  { href: "https://www.tiktok.com/@izzydesigns.io", label: "TikTok" }
 ];
 
 export function Footer() {

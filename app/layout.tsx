@@ -25,8 +25,10 @@ export const metadata: Metadata = {
     siteName: "Izzy Designs",
     images: [
       {
-        url: "/widget-icon.png",
-        alt: "Izzy Designs brand mark"
+        url: `${baseUrl}/og-default.png`,
+        width: 1200,
+        height: 630,
+        alt: "Izzy Designs — Design the life and business you want"
       }
     ],
     locale: "en_US",

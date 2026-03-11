@@ -106,21 +106,14 @@ export default function ContactPage() {
               izzy@izzydesigns.io
             </a>
             <div className="mt-6 flex flex-wrap gap-3">
-              {[
-                ["Instagram", "https://www.instagram.com"],
-                ["LinkedIn", "https://www.linkedin.com"],
-                ["Facebook", "https://www.facebook.com"]
-              ].map(([label, href]) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-full border border-slate-200 px-4 py-2 text-sm font-medium text-slate-600 transition hover:border-accent hover:text-accent"
-                >
-                  {label}
-                </a>
-              ))}
+              <a
+                href="https://www.tiktok.com/@izzydesigns.io"
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-full border border-slate-200 px-4 py-2 text-sm font-medium text-slate-600 transition hover:border-accent hover:text-accent"
+              >
+                TikTok
+              </a>
             </div>
           </div>
         </div>
