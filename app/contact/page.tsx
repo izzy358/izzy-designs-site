@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { SectionIntro } from "@/components/SectionIntro";
 import { createPageMetadata } from "@/lib/seo";
 
@@ -90,16 +91,20 @@ export default function ContactPage() {
             <p className="eyebrow text-sky-200">Book a Call</p>
             <h2 className="mt-4 text-2xl font-semibold">Schedule a strategy conversation.</h2>
             <p className="mt-4 text-sm leading-7 text-slate-300">
-              The embed below uses the current placeholder Calendly URL from the brief and can be swapped later without changing the page layout.
+              In this free consultation, we'll cover where your business stands online, your goals, specific opportunities we see, and a clear next step — no pressure, no fluff.
             </p>
             <div className="mt-6 overflow-hidden rounded-[1.5rem] border border-white/10">
               <iframe
-                src="https://calendly.com/izzydesigns"
-                title="Calendly booking"
-                className="h-[32rem] w-full bg-white"
+                src="https://api.izzydesigns.io/widget/booking/hH3rCiPa9z5dAdA53gGG"
+                style={{width:'100%',border:'none',overflow:'hidden'}}
+                scrolling="no"
+                id="hH3rCiPa9z5dAdA53gGG_1773725614891"
+                title="Book a consultation"
+                className="h-[32rem] w-full"
               />
             </div>
           </div>
+          <Script src="https://api.izzydesigns.io/js/form_embed.js" strategy="lazyOnload" />
           <div className="card-surface p-8">
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Direct Contact</p>
             <a href="mailto:izzy@izzydesigns.io" className="mt-4 block text-lg font-semibold text-accent">
