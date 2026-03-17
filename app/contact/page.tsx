@@ -91,7 +91,7 @@ export default function ContactPage() {
             <p className="eyebrow text-sky-200">Book a Call</p>
             <h2 className="mt-4 text-2xl font-semibold">Schedule a strategy conversation.</h2>
             <p className="mt-4 text-sm leading-7 text-slate-300">
-              In this free consultation, we'll cover where your business stands online, your goals, specific opportunities we see, and a clear next step — no pressure, no fluff.
+              In this free consultation, we&apos;ll cover where your business stands online, your goals, specific opportunities we see, and a clear next step — no pressure, no fluff.
             </p>
             <div className="mt-6 overflow-hidden rounded-[1.5rem] border border-white/10">
               <iframe
