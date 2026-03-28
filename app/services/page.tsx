@@ -7,7 +7,7 @@ import { createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata(
   "Services",
-  "Explore business coaching, web design services, and AI automation for small business from Izzy Designs.",
+  "Explore business coaching, web design services, AI automation, and vetted partner connections for small business from Izzy Designs.",
   "/services"
 );
 
@@ -27,6 +27,24 @@ const services = [
     name: "AI & Automation",
     description: "Stop working harder. Let AI handle the repetitive stuff.",
     url: "https://izzydesigns.io/services/ai"
+  },
+  {
+    name: "Our Network",
+    description:
+      "Trusted partner connections for business funding and Bay Area real estate through one relationship.",
+    url: "https://izzydesigns.io/network"
+  },
+  {
+    name: "Business Funding",
+    description:
+      "Get connected to a vetted funding broker who shops multiple lenders on your behalf.",
+    url: "https://izzydesigns.io/network/funding"
+  },
+  {
+    name: "Real Estate Connections",
+    description:
+      "Get connected to trusted Bay Area real estate and mortgage partners for commercial and residential property needs.",
+    url: "https://izzydesigns.io/network/real-estate"
   }
 ];
 

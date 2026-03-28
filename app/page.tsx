@@ -12,7 +12,7 @@ import { createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata(
   "Home",
-  "Izzy Designs is a web design consultant and AI business consulting partner helping small businesses grow with business coaching, conversion-focused websites, and practical automation.",
+  "Izzy Designs helps small businesses grow with business coaching, conversion-focused websites, practical automation, and vetted partner connections.",
   "/"
 );
 
@@ -22,13 +22,20 @@ const professionalServiceSchema = {
   name: "Izzy Designs",
   url: "https://izzydesigns.io",
   description:
-    "Business coaching, conversion-focused websites, and practical AI automation for solopreneurs and small business owners.",
+    "Business coaching, conversion-focused websites, practical AI automation, and vetted partner connections for solopreneurs and small business owners.",
   founder: {
     "@type": "Person",
     name: "Izzy Cortez"
   },
   areaServed: "United States",
-  serviceType: ["Business Coaching", "Web Design", "AI Automation", "Digital Marketing"],
+  serviceType: [
+    "Business Coaching",
+    "Web Design",
+    "AI Automation",
+    "Business Funding Connections",
+    "Real Estate Connections",
+    "Digital Marketing"
+  ],
   priceRange: "$500 - $5,000",
   email: "izzy@izzydesigns.io",
   sameAs: []
@@ -65,9 +72,9 @@ export default async function HomePage() {
           <SectionIntro
             eyebrow="How I Help"
             title="Support that covers strategy, execution, and systems."
-            description="Whether you need clarity on your next move, a website that actually converts, or automation that saves your team time, the work stays practical and focused on growth."
+            description="Whether you need clarity on your next move, a website that actually converts, automation that saves your team time, or trusted partner connections, the work stays practical and focused on growth."
           />
-          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+          <div className="mt-12 grid gap-6 lg:grid-cols-4">
             <ServiceCard
               icon="🧠"
               title="Business Coaching & Strategy"
@@ -86,6 +93,18 @@ export default async function HomePage() {
               description="Stop working harder. Let AI handle the repetitive stuff."
               href="/services/ai"
             />
+            <ServiceCard
+              icon="🤝"
+              title="Our Network"
+              description="Tap into vetted funding, real estate, and business partner connections through one relationship."
+              href="/network"
+            />
+          </div>
+          <div className="mt-6 card-surface p-8">
+            <p className="text-base leading-8 text-slate-600">
+              Tap into a vetted network of funding, real estate, and business partners — all
+              through one relationship.
+            </p>
           </div>
         </div>
       </section>

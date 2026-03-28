@@ -19,10 +19,17 @@ const serviceLinks = [
   { href: "/services/ai", label: "AI & Automation" }
 ];
 
+const networkLinks = [
+  { href: "/network", label: "Our Network" },
+  { href: "/network/funding", label: "Business Funding" },
+  { href: "/network/real-estate", label: "Real Estate" }
+];
+
 export function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [networkOpen, setNetworkOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur">
@@ -67,6 +74,36 @@ export function Navbar() {
               ))}
             </div>
           </div>
+          <div
+            className="group relative"
+            onMouseEnter={() => setNetworkOpen(true)}
+            onMouseLeave={() => setNetworkOpen(false)}
+          >
+            <button
+              className={clsx(
+                "text-sm font-medium transition hover:text-accent",
+                pathname.startsWith("/network") ? "text-accent" : "text-ink"
+              )}
+            >
+              Network
+            </button>
+            <div
+              className={clsx(
+                "absolute left-1/2 top-full mt-4 w-56 -translate-x-1/2 rounded-2xl border border-slate-200 bg-white p-3 shadow-soft transition",
+                networkOpen ? "visible opacity-100" : "invisible opacity-0"
+              )}
+            >
+              {networkLinks.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="block rounded-xl px-4 py-3 text-sm text-slate-600 transition hover:bg-sand hover:text-ink"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
           {navLinks.slice(2).map((item) => (
             <NavLink key={item.href} href={item.href} pathname={pathname}>
               {item.label}
@@ -97,20 +134,35 @@ export function Navbar() {
       {mobileOpen ? (
         <div className="border-t border-slate-200 bg-white lg:hidden">
           <div className="container-shell flex flex-col gap-2 py-5">
-            {[...navLinks.slice(0, 2), { href: "/services", label: "Services" }, ...navLinks.slice(2)].map(
-              (item) => (
+            {[
+              ...navLinks.slice(0, 2),
+              { href: "/services", label: "Services" },
+              { href: "/network", label: "Network" },
+              ...navLinks.slice(2)
+            ].map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setMobileOpen(false)}
+                className="rounded-2xl px-4 py-3 text-base font-medium text-ink transition hover:bg-sand"
+              >
+                {item.label}
+              </Link>
+            ))}
+            <div className="grid gap-2 px-1 pt-1">
+              {serviceLinks.slice(1).map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileOpen(false)}
-                  className="rounded-2xl px-4 py-3 text-base font-medium text-ink transition hover:bg-sand"
+                  className="rounded-2xl border border-slate-200 px-4 py-3 text-sm font-medium text-slate-600 transition hover:border-accent hover:text-accent"
                 >
                   {item.label}
                 </Link>
-              )
-            )}
+              ))}
+            </div>
             <div className="grid gap-2 px-1 pt-1">
-              {serviceLinks.slice(1).map((item) => (
+              {networkLinks.slice(1).map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
