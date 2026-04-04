@@ -1,20 +1,72 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Script from "next/script";
-import { BlogCard } from "@/components/BlogCard";
-import { CTASection } from "@/components/CTASection";
-import { Hero } from "@/components/Hero";
-import { SectionIntro } from "@/components/SectionIntro";
-import { ServiceCard } from "@/components/ServiceCard";
-import { TestimonialCard } from "@/components/TestimonialCard";
-import { getAllPosts } from "@/lib/blog";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata(
-  "Home",
-  "Izzy Designs helps small businesses grow with business coaching, conversion-focused websites, practical automation, and vetted partner connections.",
+  "Business Consulting & Partner Network",
+  "Izzy Designs helps businesses grow with strategic consulting, funding connections, and a curated partner network. One call, full access to the team.",
   "/"
 );
+
+const capabilities = [
+  {
+    letter: "A",
+    title: "Automotive",
+    description:
+      "Industry consulting, dealer licensing, vendor connections. We know the business inside and out.",
+    tag: "Industry"
+  },
+  {
+    letter: "R",
+    title: "Real Estate",
+    description:
+      "Investment strategy, market connections, tools. Access our real estate network.",
+    tag: "Industry"
+  },
+  {
+    letter: "S",
+    title: "Small Business",
+    description:
+      "Growth consulting for local businesses. Don't know where to start? That's exactly where we come in.",
+    tag: "Consulting"
+  },
+  {
+    letter: "D",
+    title: "Digital & Web",
+    description:
+      "Websites, SEO, online presence. Built and managed by our design & development partners.",
+    tag: "Services"
+  },
+  {
+    letter: "F",
+    title: "Business Funding",
+    description:
+      "Need capital? Our broker network connects you with the right funding for your stage and goals.",
+    tag: "Capital"
+  },
+  {
+    letter: "$",
+    title: "Financial Services",
+    description:
+      "Business formation, taxes, credit repair, financial planning. Get your foundation right first.",
+    tag: "Finance"
+  },
+  {
+    letter: "T",
+    title: "Technology & AI",
+    description:
+      "Automation, integrations, smart tools. Implemented by specialists who know your industry.",
+    tag: "Services"
+  },
+  {
+    letter: "N",
+    title: "The Network",
+    description:
+      "You don't need five vendors. You need one call. Developers, designers, marketers, brokers, specialists — we bring the team.",
+    tag: "Access",
+    featured: true
+  }
+];
 
 const professionalServiceSchema = {
   "@context": "https://schema.org",
@@ -22,179 +74,241 @@ const professionalServiceSchema = {
   name: "Izzy Designs",
   url: "https://izzydesigns.io",
   description:
-    "Business coaching, conversion-focused websites, practical AI automation, and vetted partner connections for solopreneurs and small business owners.",
-  founder: {
-    "@type": "Person",
-    name: "Izzy Cortez"
-  },
+    "Izzy Designs helps businesses grow with strategic consulting, funding connections, and a curated partner network. One call, full access to the team.",
   areaServed: "United States",
   serviceType: [
-    "Business Coaching",
-    "Web Design",
-    "AI Automation",
-    "Business Funding Connections",
-    "Real Estate Connections",
-    "Digital Marketing"
+    "Automotive Consulting",
+    "Real Estate Strategy",
+    "Small Business Consulting",
+    "Digital and Web Presence",
+    "Business Funding",
+    "Financial Services",
+    "Technology and AI",
+    "Curated Partner Network"
   ],
-  priceRange: "$500 - $5,000",
-  email: "izzy@izzydesigns.io",
-  sameAs: []
+  email: "izzy@izzydesigns.io"
 };
 
-const localBusinessSchema = {
+const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "Organization",
   name: "Izzy Designs",
   url: "https://izzydesigns.io",
   email: "izzy@izzydesigns.io",
-  areaServed: {
-    "@type": "Country",
-    name: "United States"
-  }
+  description:
+    "Business consulting firm with a curated partner network for strategy, funding, digital execution, and specialist connections."
 };
 
-export default async function HomePage() {
-  const posts = getAllPosts();
-
+export default function HomePage() {
   return (
     <>
       <Script id="home-professional-service-schema" type="application/ld+json">
         {JSON.stringify(professionalServiceSchema)}
       </Script>
-      <Script id="home-local-business-schema" type="application/ld+json">
-        {JSON.stringify(localBusinessSchema)}
+      <Script id="home-organization-schema" type="application/ld+json">
+        {JSON.stringify(organizationSchema)}
       </Script>
 
-      <Hero />
-
-      <section className="section-space">
+      <section className="section-space pb-10 sm:pb-14">
         <div className="container-shell">
-          <SectionIntro
-            eyebrow="How I Help"
-            title="Support that covers strategy, execution, and systems."
-            description="Whether you need clarity on your next move, a website that actually converts, automation that saves your team time, or trusted partner connections, the work stays practical and focused on growth."
-          />
-          <div className="mt-12 grid gap-6 lg:grid-cols-4">
-            <ServiceCard
-              icon="🧠"
-              title="Business Coaching & Strategy"
-              description="For owners who are stuck, scaling, or just getting started."
-              href="/services/coaching"
-            />
-            <ServiceCard
-              icon="💻"
-              title="Web Design & Digital Presence"
-              description="Websites, branding, and everything that makes your business look legit."
-              href="/services/web"
-            />
-            <ServiceCard
-              icon="🤖"
-              title="AI & Automation"
-              description="Stop working harder. Let AI handle the repetitive stuff."
-              href="/services/ai"
-            />
-            <ServiceCard
-              icon="🤝"
-              title="Our Network"
-              description="Tap into vetted funding, real estate, and business partner connections through one relationship."
-              href="/network"
-            />
-          </div>
-          <div className="mt-6 card-surface p-8">
-            <p className="text-base leading-8 text-slate-600">
-              Tap into a vetted network of funding, real estate, and business partners — all
-              through one relationship.
+          <div className="mx-auto max-w-5xl pt-10 text-center sm:pt-16">
+            <p className="eyebrow">Consulting · Strategy · Connections</p>
+            <h1 className="mt-8 text-5xl font-black tracking-[-0.08em] text-white sm:text-6xl lg:text-[72px] lg:leading-[0.95]">
+              Your business.
+              <br />
+              Our <span className="text-[#555555]">network</span>.
+            </h1>
+            <p className="mx-auto mt-8 max-w-2xl text-sm leading-8 text-[#707070] sm:text-base">
+              We help businesses grow with the right strategy, the right systems, and the right
+              people. One conversation is all it takes.
             </p>
+            <div className="mx-auto mt-10 h-px w-12 bg-[#222222]" />
           </div>
         </div>
       </section>
 
-      <section className="section-space pt-0">
+      <section id="about" className="pb-20">
         <div className="container-shell">
-          <div className="dark-panel grid gap-10 p-8 sm:p-10 lg:grid-cols-[1fr_0.8fr] lg:p-12">
+          <div className="grid gap-8 border-y border-[#111111] py-12 lg:grid-cols-[0.9fr_1.1fr] lg:py-16">
             <div>
-              <p className="eyebrow text-sky-200">Why Work With Me?</p>
-              <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                Real operating experience, not textbook advice.
+              <p className="eyebrow">About</p>
+              <h2 className="mt-5 text-3xl font-semibold tracking-[-0.05em] text-white sm:text-4xl">
+                One firm. Full access to the right operators.
               </h2>
-              <p className="mt-5 max-w-3xl text-base leading-8 text-slate-300">
-                Izzy brings more than a decade in sales, years of running businesses across
-                multiple industries, and a front-row view of where most small businesses get stuck
-                with strategy and technology.
+            </div>
+            <div className="grid gap-6 text-sm leading-7 text-[#767676] sm:grid-cols-2">
+              <p>
+                Izzy Designs is built for business owners who need clarity, traction, and trusted
+                execution without assembling five separate vendors.
+              </p>
+              <p>
+                We lead the strategy, identify the real bottlenecks, and connect you to specialists
+                across funding, digital, finance, operations, and industry-specific growth.
               </p>
             </div>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-              {[
-                "10+ years in sales and client-facing growth work",
-                "7+ years running businesses and making real-world decisions",
-                "Hands-on across automotive, service, and digital delivery models",
-                "Built to bridge the gap between business strategy and execution"
-              ].map((item) => (
-                <div key={item} className="rounded-3xl border border-white/10 bg-white/5 p-5 text-sm leading-7 text-slate-200">
-                  {item}
+          </div>
+        </div>
+      </section>
+
+      <section id="results" className="pb-10">
+        <div className="container-shell">
+          <div className="mb-10 text-center">
+            <p className="eyebrow">How We Help</p>
+          </div>
+          <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+            {capabilities.map((item) => (
+              <article
+                key={item.title}
+                className={[
+                  "flex min-h-[16rem] flex-col justify-between overflow-hidden rounded-[1.6rem] border bg-sand p-8 transition",
+                  item.featured
+                    ? "border-[#1e1e1e] bg-[#0c0c0c] hover:border-[#2c2c2c]"
+                    : "border-[#161616] hover:border-[#2a2a2a] hover:bg-[#0d0d0d]"
+                ].join(" ")}
+              >
+                <div>
+                  <div
+                    className={[
+                      "text-[44px] font-black tracking-[-0.08em] text-white",
+                      item.featured ? "opacity-15" : "opacity-[0.1]"
+                    ].join(" ")}
+                  >
+                    {item.letter}
+                  </div>
+                  <h3 className="mt-4 text-[17px] font-semibold text-white">{item.title}</h3>
+                  <p
+                    className={[
+                      "mt-3 text-[13px] leading-6",
+                      item.featured ? "text-[#666666]" : "text-[#555555]"
+                    ].join(" ")}
+                  >
+                    {item.description}
+                  </p>
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section-space pt-0">
-        <div className="container-shell">
-          <SectionIntro
-            eyebrow="Client Feedback"
-            title="What clients say after the business gets clearer."
-            description="Placeholder testimonials are used for now and can be swapped with final client quotes later."
-            center
-          />
-          <div className="mt-12 grid gap-6 lg:grid-cols-3">
-            <TestimonialCard
-              quote="Izzy helped me simplify my offer, tighten my site, and finally create a process for follow-up. I stopped guessing."
-              name="Maya R."
-              title="Service Business Owner"
-            />
-            <TestimonialCard
-              quote="The strategy sessions were direct, practical, and exactly what I needed. Every call ended with a plan I could execute."
-              name="Derek L."
-              title="Founder, Local Agency"
-            />
-            <TestimonialCard
-              quote="The website looks better, but more importantly it converts better. We started getting better quality inquiries almost immediately."
-              name="Angela T."
-              title="Consultant"
-            />
-          </div>
-        </div>
-      </section>
-
-      <section className="section-space pt-0">
-        <div className="container-shell">
-          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-            <SectionIntro
-              eyebrow="From the Blog"
-              title="Recent insights for small business growth."
-              description="Articles on business strategy, conversion-focused web design, and practical AI implementation."
-            />
-            <Link href="/blog" className="btn-secondary">
-              View All Posts
-            </Link>
-          </div>
-          <div className="mt-12 grid gap-6 lg:grid-cols-3">
-            {posts.slice(0, 3).map((post) => (
-              <BlogCard key={post.slug} post={post} />
+                <span className="mt-6 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#333333]">
+                  {item.tag}
+                </span>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      <CTASection
-        title="Ready to grow your business?"
-        description="Start with a focused conversation about where the bottlenecks are, what should happen next, and how Izzy Designs can help."
-        primaryHref="/contact#book"
-        primaryLabel="Book a Free Strategy Call"
-        secondaryHref="/services"
-        secondaryLabel="See Services"
-      />
+      <section className="pb-16 pt-12">
+        <div className="container-shell text-center">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#333333]">
+            Trusted by small businesses across industries
+          </p>
+        </div>
+      </section>
+
+      <section id="contact" className="section-space pt-0">
+        <div className="container-shell">
+          <div className="mb-10 max-w-3xl">
+            <p className="eyebrow">Let&apos;s Talk</p>
+            <h2 className="mt-5 text-3xl font-semibold tracking-[-0.05em] text-white sm:text-4xl">
+              Book a Consultation
+            </h2>
+            <p className="mt-5 text-sm leading-7 text-[#7b7b7b] sm:text-[15px]">
+              No pitch deck. No pressure. Just a conversation about where you&apos;re trying to
+              go.
+            </p>
+          </div>
+          <div className="grid gap-6 xl:grid-cols-[0.9fr_1.1fr]">
+            <div className="card-surface p-7 sm:p-8">
+              <form action="https://formspree.io/f/xbdaaddp" method="POST" className="space-y-5">
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <label className="block">
+                    <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.18em] text-[#686868]">
+                      Name
+                    </span>
+                    <input
+                      type="text"
+                      name="name"
+                      required
+                      className="w-full rounded-2xl px-4 py-3 text-sm"
+                    />
+                  </label>
+                  <label className="block">
+                    <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.18em] text-[#686868]">
+                      Email
+                    </span>
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      className="w-full rounded-2xl px-4 py-3 text-sm"
+                    />
+                  </label>
+                </div>
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <label className="block">
+                    <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.18em] text-[#686868]">
+                      Business Name
+                    </span>
+                    <input
+                      type="text"
+                      name="business_name"
+                      className="w-full rounded-2xl px-4 py-3 text-sm"
+                    />
+                  </label>
+                  <label className="block">
+                    <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.18em] text-[#686868]">
+                      Service Interest
+                    </span>
+                    <select
+                      name="service_interest"
+                      defaultValue=""
+                      className="w-full rounded-2xl px-4 py-3 text-sm"
+                    >
+                      <option value="" disabled>
+                        Select a service
+                      </option>
+                      <option>Business Consulting &amp; Strategy</option>
+                      <option>Automotive Industry</option>
+                      <option>Real Estate</option>
+                      <option>Business Funding</option>
+                      <option>Financial Services (Credit, Taxes, Formation)</option>
+                      <option>Digital &amp; Web Presence</option>
+                      <option>Technology &amp; AI</option>
+                      <option>Not Sure — Let&apos;s Talk</option>
+                    </select>
+                  </label>
+                </div>
+                <label className="block">
+                  <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.18em] text-[#686868]">
+                    Message
+                  </span>
+                  <textarea
+                    name="message"
+                    rows={7}
+                    required
+                    placeholder="Tell us what you&apos;re building, where things feel stuck, and what kind of support would move things forward."
+                    className="w-full rounded-[1.5rem] px-4 py-3 text-sm"
+                  />
+                </label>
+                <button type="submit" className="btn-primary w-full sm:w-auto">
+                  Send Inquiry
+                </button>
+              </form>
+            </div>
+
+            <div className="card-surface p-4 sm:p-5">
+              <div className="overflow-hidden rounded-[1.5rem] border border-[#161616]">
+                <iframe
+                  src="https://api.izzydesigns.io/widget/booking/hH3rCiPa9z5dAdA53gGG"
+                  style={{ width: "100%", border: "none", overflow: "hidden" }}
+                  scrolling="no"
+                  id="hH3rCiPa9z5dAdA53gGG_1773725614891"
+                  title="Book a consultation"
+                  className="h-[32rem] w-full"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <Script src="https://api.izzydesigns.io/js/form_embed.js" strategy="lazyOnload" />
+      </section>
     </>
   );
 }

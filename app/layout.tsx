@@ -1,26 +1,26 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
-
-const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 const baseUrl = "https://izzydesigns.io";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "Izzy Designs | Design the life and business you want",
+    default: "Izzy Designs | Business Consulting & Partner Network",
     template: "%s | Izzy Designs"
   },
   description:
-    "Izzy Designs offers business coaching, web design consulting, and AI business consulting for small business growth.",
+    "Izzy Designs helps businesses grow with strategic consulting, funding connections, and a curated partner network. One call, full access to the team.",
+  alternates: {
+    canonical: "/"
+  },
   openGraph: {
-    title: "Izzy Designs",
+    title: "Izzy Designs | Business Consulting & Partner Network",
     description:
-      "Business coaching, websites, and AI systems built for practical small business growth.",
+      "Izzy Designs helps businesses grow with strategic consulting, funding connections, and a curated partner network. One call, full access to the team.",
     url: baseUrl,
     siteName: "Izzy Designs",
     images: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
         url: `${baseUrl}/og-default.png`,
         width: 1200,
         height: 630,
-        alt: "Izzy Designs — Design the life and business you want"
+        alt: "Izzy Designs | Business Consulting & Partner Network"
       }
     ],
     locale: "en_US",
@@ -36,10 +36,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Izzy Designs",
+    title: "Izzy Designs | Business Consulting & Partner Network",
     description:
-      "Design the life and business you want with strategic coaching, websites, and AI automation.",
-    images: ["/widget-icon.png"]
+      "Izzy Designs helps businesses grow with strategic consulting, funding connections, and a curated partner network. One call, full access to the team.",
+    images: [`${baseUrl}/og-default.png`]
   }
 };
 
@@ -50,9 +50,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <div className="relative overflow-hidden">
-          <div className="absolute inset-x-0 top-0 -z-10 h-[34rem] bg-[radial-gradient(circle_at_top,rgba(14,165,233,0.14),transparent_55%)]" />
+      <body>
+        <div className="min-h-screen bg-ink">
           <Navbar />
           <main>{children}</main>
           <Footer />

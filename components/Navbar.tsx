@@ -5,206 +5,81 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import clsx from "clsx";
 
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/blog", label: "Blog" },
-  { href: "/contact", label: "Contact" }
-];
-
-const serviceLinks = [
-  { href: "/services", label: "Services" },
-  { href: "/services/coaching", label: "Coaching" },
-  { href: "/services/web", label: "Web Design" },
-  { href: "/services/ai", label: "AI & Automation" }
-];
-
-const networkLinks = [
-  { href: "/network", label: "Our Network" },
-  { href: "/network/funding", label: "Business Funding" },
-  { href: "/network/real-estate", label: "Real Estate" }
+const primaryLinks = [
+  { href: "/#about", label: "About" },
+  { href: "/#results", label: "Results" }
 ];
 
 export function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
-  const [networkOpen, setNetworkOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-[#111111] bg-ink/92 backdrop-blur">
       <div className="container-shell flex h-20 items-center justify-between">
-        <Link href="/" className="text-lg font-semibold tracking-[0.22em] text-ink">
-          IZZY DESIGNS
+        <Link
+          href="/"
+          className="text-sm font-bold uppercase tracking-[0.32em] text-white transition hover:text-[#cfcfcf]"
+        >
+          Izzy Designs
         </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex">
-          {navLinks.slice(0, 2).map((item) => (
-            <NavLink key={item.href} href={item.href} pathname={pathname}>
+        <nav className="hidden items-center gap-8 md:flex">
+          {primaryLinks.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={clsx(
+                "text-[12px] font-medium uppercase tracking-[0.22em] transition",
+                pathname === "/" ? "text-[#7d7d7d] hover:text-white" : "text-[#8d8d8d] hover:text-white"
+              )}
+            >
               {item.label}
-            </NavLink>
+            </Link>
           ))}
-          <div
-            className="group relative"
-            onMouseEnter={() => setServicesOpen(true)}
-            onMouseLeave={() => setServicesOpen(false)}
-          >
-            <button
-              className={clsx(
-                "text-sm font-medium transition hover:text-accent",
-                pathname.startsWith("/services") ? "text-accent" : "text-ink"
-              )}
-            >
-              Services
-            </button>
-            <div
-              className={clsx(
-                "absolute left-1/2 top-full mt-4 w-56 -translate-x-1/2 rounded-2xl border border-slate-200 bg-white p-3 shadow-soft transition",
-                servicesOpen ? "visible opacity-100" : "invisible opacity-0"
-              )}
-            >
-              {serviceLinks.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="block rounded-xl px-4 py-3 text-sm text-slate-600 transition hover:bg-sand hover:text-ink"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-          <div
-            className="group relative"
-            onMouseEnter={() => setNetworkOpen(true)}
-            onMouseLeave={() => setNetworkOpen(false)}
-          >
-            <button
-              className={clsx(
-                "text-sm font-medium transition hover:text-accent",
-                pathname.startsWith("/network") ? "text-accent" : "text-ink"
-              )}
-            >
-              Network
-            </button>
-            <div
-              className={clsx(
-                "absolute left-1/2 top-full mt-4 w-56 -translate-x-1/2 rounded-2xl border border-slate-200 bg-white p-3 shadow-soft transition",
-                networkOpen ? "visible opacity-100" : "invisible opacity-0"
-              )}
-            >
-              {networkLinks.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="block rounded-xl px-4 py-3 text-sm text-slate-600 transition hover:bg-sand hover:text-ink"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-          {navLinks.slice(2).map((item) => (
-            <NavLink key={item.href} href={item.href} pathname={pathname}>
-              {item.label}
-            </NavLink>
-          ))}
-        </nav>
-
-        <div className="hidden lg:block">
-          <Link href="/contact#book" className="btn-primary">
-            Book a Call
+          <Link href="/#contact" className="btn-secondary">
+            Let&apos;s Talk
           </Link>
-        </div>
+        </nav>
 
         <button
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 lg:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#222222] md:hidden"
           onClick={() => setMobileOpen((open) => !open)}
+          aria-expanded={mobileOpen}
           aria-label="Toggle navigation"
         >
           <span className="space-y-1.5">
-            <span className="block h-0.5 w-5 bg-ink" />
-            <span className="block h-0.5 w-5 bg-ink" />
-            <span className="block h-0.5 w-5 bg-ink" />
+            <span className="block h-0.5 w-5 bg-white" />
+            <span className="block h-0.5 w-5 bg-white" />
+            <span className="block h-0.5 w-5 bg-white" />
           </span>
         </button>
       </div>
 
       {mobileOpen ? (
-        <div className="border-t border-slate-200 bg-white lg:hidden">
+        <div className="border-t border-[#111111] bg-[#060606] md:hidden">
           <div className="container-shell flex flex-col gap-2 py-5">
-            {[
-              ...navLinks.slice(0, 2),
-              { href: "/services", label: "Services" },
-              { href: "/network", label: "Network" },
-              ...navLinks.slice(2)
-            ].map((item) => (
+            {primaryLinks.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setMobileOpen(false)}
-                className="rounded-2xl px-4 py-3 text-base font-medium text-ink transition hover:bg-sand"
+                className="rounded-2xl px-4 py-3 text-sm font-medium uppercase tracking-[0.18em] text-[#9a9a9a] transition hover:bg-[#0c0c0c] hover:text-white"
               >
                 {item.label}
               </Link>
             ))}
-            <div className="grid gap-2 px-1 pt-1">
-              {serviceLinks.slice(1).map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="rounded-2xl border border-slate-200 px-4 py-3 text-sm font-medium text-slate-600 transition hover:border-accent hover:text-accent"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-            <div className="grid gap-2 px-1 pt-1">
-              {networkLinks.slice(1).map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="rounded-2xl border border-slate-200 px-4 py-3 text-sm font-medium text-slate-600 transition hover:border-accent hover:text-accent"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
             <Link
-              href="/contact#book"
+              href="/#contact"
               onClick={() => setMobileOpen(false)}
-              className="btn-primary mt-3"
+              className="btn-secondary mt-2"
             >
-              Book a Call
+              Let&apos;s Talk
             </Link>
           </div>
         </div>
       ) : null}
     </header>
-  );
-}
-
-function NavLink({
-  href,
-  pathname,
-  children
-}: {
-  href: string;
-  pathname: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <Link
-      href={href}
-      className={clsx(
-        "text-sm font-medium transition hover:text-accent",
-        pathname === href ? "text-accent" : "text-ink"
-      )}
-    >
-      {children}
-    </Link>
   );
 }

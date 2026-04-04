@@ -11,12 +11,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#1a1a2e",
+        ink: "#050505",
         accent: "#0ea5e9",
-        sand: "#f6f7fb"
+        sand: "#0a0a0a",
+        muted: "#666666",
+        subtle: "#444444"
       },
       boxShadow: {
-        soft: "0 18px 40px -24px rgba(15, 23, 42, 0.28)"
+        soft: "0 24px 60px -36px rgba(0, 0, 0, 0.7)"
       },
       animation: {
         "fade-up": "fadeUp 0.7s ease-out both"

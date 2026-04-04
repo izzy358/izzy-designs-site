@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 html {
@@ -11,7 +11,8 @@ html {
 }
 
 body {
-  @apply bg-white text-ink antialiased;
+  @apply bg-ink text-white antialiased;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 a,
@@ -20,11 +21,15 @@ input,
 select,
 textarea,
 iframe {
-  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2;
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-ink;
+}
+
+::selection {
+  @apply bg-white text-ink;
 }
 
 .container-shell {
-  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  @apply mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-10;
 }
 
 .section-space {
@@ -32,28 +37,35 @@ iframe {
 }
 
 .eyebrow {
-  @apply text-sm font-semibold uppercase tracking-[0.2em] text-accent;
+  @apply text-[11px] font-semibold uppercase tracking-[0.32em] text-subtle;
 }
 
 .card-surface {
-  @apply rounded-3xl border border-slate-200 bg-white shadow-soft;
+  @apply rounded-[1.75rem] border border-[#161616] bg-sand shadow-soft;
 }
 
 .dark-panel {
-  @apply rounded-[2rem] bg-ink text-white shadow-soft;
+  @apply rounded-[2rem] border border-[#141414] bg-[#080808] text-white shadow-soft;
 }
 
 .btn-primary {
-  @apply inline-flex items-center justify-center rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition hover:bg-sky-600;
+  @apply inline-flex items-center justify-center rounded-full border border-white px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-white transition hover:bg-white hover:text-ink;
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-ink transition hover:border-accent hover:text-accent;
+  @apply inline-flex items-center justify-center rounded-full border border-[#262626] px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-white transition hover:border-white;
 }
 
-.grid-overlay {
-  background-image:
-    linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
-  background-size: 30px 30px;
+input,
+select,
+textarea {
+  @apply border border-[#1a1a1a] bg-[#070707] text-white placeholder:text-[#4d4d4d];
+}
+
+.surface-divider {
+  @apply border-t border-[#111111];
+}
+
+.prose-dark {
+  @apply prose prose-invert max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:text-[#8a8a8a] prose-strong:text-white prose-li:text-[#8a8a8a] prose-a:text-white prose-code:text-white prose-pre:border prose-pre:border-[#1a1a1a] prose-pre:bg-[#080808];
 }

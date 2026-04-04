@@ -57,7 +57,7 @@ export default function MarkdownContent({ content }: { content: string }) {
 
   return (
     <div
-      className="prose prose-slate max-w-none prose-headings:font-semibold prose-headings:text-ink prose-p:text-slate-600 prose-li:text-slate-600 prose-a:text-accent"
+      className="prose-dark"
       dangerouslySetInnerHTML={{ __html: html.join("\n") }}
     />
   );

@@ -9,6 +9,7 @@ export function createPageMetadata(
   path = "/"
 ): Metadata {
   const url = new URL(path, baseUrl).toString();
+  const fullTitle = `${title} | ${siteName}`;
 
   return {
     title,
@@ -17,16 +18,25 @@ export function createPageMetadata(
       canonical: path
     },
     openGraph: {
-      title: `${title} | ${siteName}`,
+      title: fullTitle,
       description,
       url,
       siteName,
-      type: "website"
+      type: "website",
+      images: [
+        {
+          url: `${baseUrl}/og-default.png`,
+          width: 1200,
+          height: 630,
+          alt: fullTitle
+        }
+      ]
     },
     twitter: {
       card: "summary_large_image",
-      title: `${title} | ${siteName}`,
-      description
+      title: fullTitle,
+      description,
+      images: [`${baseUrl}/og-default.png`]
     }
   };
 }
