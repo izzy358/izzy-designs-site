@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Izzy Designs — Concept Mockup v2</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #050505; color: #fff; font-family: 'Inter', sans-serif; }
+  
+  /* Nav */
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 28px 60px; }
+  .logo { font-size: 20px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a { color: #888; text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; transition: color 0.3s; }
+  .nav-links a:hover { color: #fff; }
+  .nav-cta { border: 1px solid #444; padding: 8px 20px; font-size: 12px; color: #fff !important; letter-spacing: 1.5px; }
+  
+  /* Hero */
+  .hero { text-align: center; padding: 100px 40px 40px; }
+  .hero h1 { font-size: 68px; font-weight: 900; letter-spacing: -2px; line-height: 1.05; margin-bottom: 28px; }
+  .hero h1 .accent { color: #555; }
+  .hero p { font-size: 18px; color: #666; max-width: 520px; margin: 0 auto; line-height: 1.7; }
+  
+  /* Tagline bar */
+  .tagline { text-align: center; padding: 50px 40px 0; }
+  .tagline p { font-size: 12px; color: #444; letter-spacing: 4px; text-transform: uppercase; }
+
+  /* Divider */
+  .divider { width: 40px; height: 1px; background: #222; margin: 60px auto; }
+  
+  /* Grid */
+  .grid-section { padding: 0 60px 80px; max-width: 1200px; margin: 0 auto; }
+  .grid-label { font-size: 11px; color: #444; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 40px; text-align: center; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+  .card { background: #0a0a0a; border: 1px solid #161616; padding: 44px 32px; transition: all 0.3s; position: relative; overflow: hidden; }
+  .card:hover { border-color: #2a2a2a; background: #0d0d0d; }
+  .card-letter { font-size: 44px; font-weight: 900; color: #fff; margin-bottom: 16px; opacity: 0.08; letter-spacing: -1px; }
+  .card h3 { font-size: 16px; font-weight: 600; margin-bottom: 10px; letter-spacing: 0.3px; }
+  .card p { font-size: 12.5px; color: #555; line-height: 1.65; }
+  .card .tag { display: inline-block; margin-top: 14px; font-size: 10px; color: #333; letter-spacing: 2px; text-transform: uppercase; }
+  
+  /* Network card special */
+  .card.network { background: #0c0c0c; border-color: #1e1e1e; }
+  .card.network .card-letter { opacity: 0.15; }
+  .card.network p { color: #666; }
+  
+  /* Social proof */
+  .proof { text-align: center; padding: 60px 40px 20px; }
+  .proof p { font-size: 13px; color: #333; letter-spacing: 1px; }
+  
+  /* CTA */
+  .cta-section { text-align: center; padding: 40px 40px 120px; }
+  .cta-btn { display: inline-block; padding: 18px 56px; border: 1px solid #fff; color: #fff; font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; transition: all 0.3s; }
+  .cta-btn:hover { background: #fff; color: #000; }
+  .cta-sub { font-size: 13px; color: #383838; margin-top: 18px; }
+
+  /* Footer */
+  footer { border-top: 1px solid #111; padding: 40px 60px; display: flex; justify-content: space-between; align-items: center; }
+  footer .copy { font-size: 11px; color: #333; }
+  footer .links a { font-size: 11px; color: #333; text-decoration: none; margin-left: 24px; }
+
+  /* Watermark */
+  .watermark { position: fixed; bottom: 20px; right: 20px; font-size: 10px; color: #222; letter-spacing: 1px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Izzy Designs</div>
+  <div class="nav-links">
+    <a href="#">About</a>
+    <a href="#">Results</a>
+    <a href="#" class="nav-cta">Let's Talk</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <h1>Your business.<br>Our <span class="accent">network</span>.</h1>
+  <p>We help businesses grow — with the right strategy, the right systems, and the right people. One conversation is all it takes.</p>
+</section>
+
+<div class="tagline"><p>Consulting · Strategy · Connections</p></div>
+
+<div class="divider"></div>
+
+<section class="grid-section">
+  <div class="grid-label">How We Help</div>
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-letter">A</div>
+      <h3>Automotive</h3>
+      <p>Industry consulting, dealer licensing, vendor connections. We know the business inside and out.</p>
+      <span class="tag">Industry</span>
+    </div>
+
+    <div class="card">
+      <div class="card-letter">R</div>
+      <h3>Real Estate</h3>
+      <p>Investment strategy, market connections, tools. Access our real estate network.</p>
+      <span class="tag">Industry</span>
+    </div>
+
+    <div class="card">
+      <div class="card-letter">S</div>
+      <h3>Small Business</h3>
+      <p>Growth consulting for local businesses. Don't know where to start? That's exactly where we come in.</p>
+      <span class="tag">Consulting</span>
+    </div>
+
+    <div class="card">
+      <div class="card-letter">D</div>
+      <h3>Digital & Web</h3>
+      <p>Websites, SEO, online presence. Built and managed by our design & development partners.</p>
+      <span class="tag">Services</span>
+    </div>
+
+    <div class="card">
+      <div class="card-letter">F</div>
+      <h3>Business Funding</h3>
+      <p>Need capital? Our broker network connects you with the right funding for your stage and goals.</p>
+      <span class="tag">Capital</span>
+    </div>
+
+    <div class="card">
+      <div class="card-letter">$</div>
+      <h3>Financial Services</h3>
+      <p>Business formation, taxes, credit repair, financial planning. Get your foundation right first.</p>
+      <span class="tag">Finance</span>
+    </div>
+
+    <div class="card">
+      <div class="card-letter">T</div>
+      <h3>Technology & AI</h3>
+      <p>Automation, integrations, smart tools. Implemented by specialists who know your industry.</p>
+      <span class="tag">Services</span>
+    </div>
+
+    <div class="card network">
+      <div class="card-letter">N</div>
+      <h3>The Network</h3>
+      <p>You don't need five vendors. You need one call. Developers, designers, marketers, brokers, specialists — we bring the team.</p>
+      <span class="tag">Access</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="proof">
+  <p>TRUSTED BY SMALL BUSINESSES ACROSS INDUSTRIES</p>
+</section>
+
+<section class="cta-section">
+  <a href="#" class="cta-btn">Book a Consultation</a>
+  <div class="cta-sub">No pitch deck. No pressure. Just a conversation about where you're trying to go.</div>
+</section>
+
+<footer>
+  <div class="copy">&copy; 2026 Izzy Designs. All rights reserved.</div>
+  <div class="links">
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+  </div>
+</footer>
+
+<div class="watermark">CONCEPT MOCKUP v2</div>
+
+</body>
+</html>
