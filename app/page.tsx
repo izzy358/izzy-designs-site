@@ -155,12 +155,12 @@ export default function HomePage() {
           <div className="mb-10 text-center">
             <p className="eyebrow">How We Help</p>
           </div>
-          <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid gap-[2px] sm:grid-cols-2 lg:grid-cols-4">
             {capabilities.map((item) => (
               <article
                 key={item.title}
                 className={[
-                  "flex min-h-[16rem] flex-col justify-between overflow-hidden rounded-[1.6rem] border bg-sand p-8 transition",
+                  "flex min-h-[14rem] flex-col justify-between overflow-hidden border bg-sand p-8 transition",
                   item.featured
                     ? "border-[#1e1e1e] bg-[#0c0c0c] hover:border-[#2c2c2c]"
                     : "border-[#161616] hover:border-[#2a2a2a] hover:bg-[#0d0d0d]"
