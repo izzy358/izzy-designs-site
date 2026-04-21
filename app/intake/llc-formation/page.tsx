@@ -433,12 +433,11 @@ export default function LLCFormationIntake() {
             <div className="grid gap-5 sm:grid-cols-2">
               <div>
                 <label className="label-text">
-                  Estimated Business Start Date *
+                  Estimated Business Start Date
                 </label>
                 <input
                   name="startDate"
                   type="date"
-                  required
                   className="input-field"
                 />
               </div>
@@ -457,22 +456,20 @@ export default function LLCFormationIntake() {
               </div>
               <div>
                 <label className="label-text">
-                  Number of Expected Employees *
+                  Number of Expected Employees
                 </label>
                 <input
                   name="employeeCount"
                   type="number"
                   min={0}
-                  required
                   className="input-field"
                   placeholder="Enter 0 if just owner(s)"
                 />
               </div>
               <div>
-                <label className="label-text">Fiscal Year End *</label>
+                <label className="label-text">Fiscal Year End</label>
                 <select
                   name="fiscalYearEnd"
-                  required
                   className="input-field"
                   defaultValue="December 31"
                 >
@@ -484,11 +481,10 @@ export default function LLCFormationIntake() {
               </div>
               <div>
                 <label className="label-text">
-                  Will the LLC need an EIN (Federal Tax ID)? *
+                  Will the LLC need an EIN (Federal Tax ID)?
                 </label>
                 <select
                   name="needsEIN"
-                  required
                   className="input-field"
                   defaultValue="Yes"
                 >
@@ -501,9 +497,9 @@ export default function LLCFormationIntake() {
               </div>
               <div>
                 <label className="label-text">
-                  Will the LLC have employees? *
+                  Will the LLC have employees?
                 </label>
-                <select name="hasEmployees" required className="input-field">
+                <select name="hasEmployees" className="input-field">
                   <option value="Not initially, just owner(s)">
                     Not initially, just owner(s)
                   </option>
@@ -515,11 +511,10 @@ export default function LLCFormationIntake() {
               </div>
               <div className="sm:col-span-2">
                 <label className="label-text">
-                  Will the LLC sell physical goods? *
+                  Will the LLC sell physical goods?
                 </label>
                 <select
                   name="sellsPhysicalGoods"
-                  required
                   className="input-field"
                 >
                   <option value="No">No</option>
