@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
 
     const resend = getResend();
     await resend.emails.send({
-      from: "Izzy Designs Intake <intake@izzydesigns.io>",
+      from: "Izzy Designs Intake <onboarding@resend.dev>",
       to: "izzy@izzydesigns.io",
       subject: `New LLC Formation Intake — ${clientName}`,
       html: emailHtml,
