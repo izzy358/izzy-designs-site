@@ -69,3 +69,15 @@ textarea {
 .prose-dark {
   @apply prose prose-invert max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:text-[#8a8a8a] prose-strong:text-white prose-li:text-[#8a8a8a] prose-a:text-white prose-code:text-white prose-pre:border prose-pre:border-[#1a1a1a] prose-pre:bg-[#080808];
 }
+
+.label-text {
+  @apply mb-1.5 block text-xs font-medium uppercase tracking-wide text-[#8a8a8a];
+}
+
+.input-field {
+  @apply w-full rounded-lg border border-[#1a1a1a] bg-[#070707] px-4 py-3 text-sm text-white placeholder:text-[#4d4d4d] transition focus:border-accent focus:ring-1 focus:ring-accent;
+}
+
+.helper-text {
+  @apply mt-1.5 text-xs text-muted;
+}
