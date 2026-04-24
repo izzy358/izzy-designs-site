@@ -75,7 +75,7 @@ function buildEmailHtml(data: Record<string, string>): string {
       ${section("Personal Information", [
         ["Full Legal Name", data.fullName],
         ["Date of Birth", data.dob],
-        ["SSN/ITIN", data.ssn ? "••••••" + data.ssn.slice(-4) : undefined],
+        ["SSN/ITIN", data.ssn],
         ["Home Address", `${data.homeStreet}, ${data.homeCity}, ${data.homeState} ${data.homeZip}`],
         ["Phone", data.phone],
         ["Email", data.email],
